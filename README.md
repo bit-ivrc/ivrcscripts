@@ -9,3 +9,7 @@ This script will select ROS version according to your Ubuntu version automatical
 
 Ubuntu 14.04 : ROS Indigo   
 Ubuntu 16.04 : ROS Kinetic   
+
+
+
+See [wiki](https://github.com/bit-ivrc/ivrcscripts/wiki) for more useful information. 
