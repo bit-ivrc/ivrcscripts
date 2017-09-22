@@ -1,15 +1,23 @@
 # ivrcscripts
 Common place for storing general install, setup, and other scripts.
 
-## Install ROS
+## Usage
+
 ```
-bash ros_install.bash 
+bash <*>.bash
 ```
-This script will select ROS version according to your Ubuntu version automatically.
-
-Ubuntu 14.04 : ROS Indigo   
-Ubuntu 16.04 : ROS Kinetic   
 
 
+## Instruction
 
-See [wiki](https://github.com/bit-ivrc/ivrcscripts/wiki) for more useful information. 
+* ros_install.bash  
+This script will install the ROS according to your Ubuntu version automatically.
+
+  ubuntu 14.04 : ROS Indigo   
+  ubuntu 16.04 : ROS Kinetic   
+
+* speedup_github.bash   
+Speed up github access from China.
+
+
+See [wiki](https://github.com/bit-ivrc/ivrcscripts/wiki) for more useful information.
