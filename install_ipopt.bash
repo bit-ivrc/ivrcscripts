@@ -24,15 +24,15 @@ install_ipopt()
 
         echo "Installing third party dependencies ..."
         cd $IPOPTDIR/ThirdParty/Mumps
-        ./get.Mumps  2>&1 | grep ... 
+        ./get.Mumps  
         cd ../ASL
-        ./get.ASL  2>&1 | grep ... 
+        ./get.ASL   
         cd ../Blas
-        ./get.Blas  2>&1 | grep ...
+        ./get.Blas  
         cd ../Lapack
-        ./get.Lapack  2>&1 | grep ...
+        ./get.Lapack  
         cd ../Metis
-        ./get.Metis  2>&1 | grep ...
+        ./get.Metis  
 
         # configure,build and install the IPOPT
         echo "Configuring and building IPOPT ..."
