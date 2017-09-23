@@ -1,0 +1,57 @@
+#!/bin/bash
+
+set -e # exit on first error
+
+install_ipopt()
+{
+
+    echo "Prepare to install IPOPT ..."
+    IPOPT="Ipopt"
+    VERSION="3.12.4"
+    IPOPT_URL="https://www.coin-or.org/download/source/Ipopt/$IPOPT-$VERSION.tgz"
+    TEMP_DIR=$(mktemp -d)
+    IPOPTDIR="$TEMP_DIR/$IPOPT-$VERSION"
+
+    sudo apt-get -qq install gfortran
+    if ( ldconfig -p | grep libipopt ); then
+        echo "Ipopt is already installed......."
+    else
+        echo "Start installing Ipopt, version: $VERSION .........."
+        cd $TEMP_DIR
+        wget $IPOPT_URL
+        tar -xf $IPOPTDIR.tgz
+        rm -rf $IPOPT-$VERSION.tgz
+
+        echo "Installing third party dependencies ..."
+        cd $IPOPTDIR/ThirdParty/Mumps
+        ./get.Mumps  2>&1 | grep ... 
+        cd ../ASL
+        ./get.ASL  2>&1 | grep ... 
+        cd ../Blas
+        ./get.Blas  2>&1 | grep ...
+        cd ../Lapack
+        ./get.Lapack  2>&1 | grep ...
+        cd ../Metis
+        ./get.Metis  2>&1 | grep ...
+
+        # configure,build and install the IPOPT
+        echo "Configuring and building IPOPT ..."
+        cd $IPOPTDIR
+        ./configure --prefix /usr/local 2>&1 | grep ...
+        make -j$(nproc) 2>&1 | grep ...  # filter error messages written to stderr 
+        make test > /dev/null
+        sudo make install > /dev/null
+        cd "$HOME"
+        rm -rf $IPOPTDIR
+        if (grep 'export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH' $HOME/.bashrc); then
+          echo "LD_LIBRARY_PATH has been set."
+        else
+          echo 'export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH' >> $HOME/.bashrc
+        fi
+        sudo ldconfig
+        echo "IPOPT installed successfully"
+        source $HOME/.bashrc
+    fi
+}
+
+install_ipopt
