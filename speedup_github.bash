@@ -26,7 +26,8 @@ update_github_hosts()
   sudo sh -c 'echo "# github" >> /etc/hosts'
   sudo sh -c 'echo "151.101.72.249 github.global.ssl.fastly.net" >> /etc/hosts'
   sudo sh -c 'echo "151.101.72.133 assets-cdn.github.com" >> /etc/hosts'
-
+  sudo sh -c 'echo "151.101.76.133 avatars0.githubusercontent.com" >> /etc/hosts'
+  sudo sh -c 'echo "151.101.76.133 avatars1.githubusercontent.com" >> /etc/hosts'
   #sudo sh -c 'echo "$(dig +short github.com | grep -v "\.$" | head -n 1) github.com" >> /etc/hosts'
   #sudo sh -c 'echo "$(dig +short github.global.ssl.fastly.net | grep -v "\.$" | head -n 1) github.global.ssl.fastly.net" >> /etc/hosts'
   #sudo sh -c 'echo "$(dig +short assets-cdn.github.com | grep -v "\.$" | head -n 1) assets-cdn.github.com" >> /etc/hosts'
