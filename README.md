@@ -9,6 +9,9 @@ bash <*>.bash
 
 
 ## Instruction
+* install_bit_source_list.bash   
+This script will replace `/etc/apt/sources.list` with the sources mirror of BIT, which will speed up the software installation through `apt-get`.
+
 
 * ros_install.bash  
 This script will install the ROS according to your Ubuntu version automatically.
