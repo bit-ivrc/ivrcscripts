@@ -29,12 +29,29 @@ ros_install()
   echo "Updating package lists ..."
   sudo apt-get -qq update
   echo "Installing ROS $ROS_DISTRO ..."
-  sudo apt-get -qq install ros-$ROS_DISTRO-desktop 
-  sudo apt-get -qq install python-catkin-tools 
-  sudo apt-get -qq install ros-$ROS_DISTRO-catkin 
+  sudo apt-get -qq install ros-$ROS_DISTRO-desktop > /dev/null
+  sudo apt-get -qq install python-catkin-tools > /dev/null
+  sudo apt-get -qq install ros-$ROS_DISTRO-catkin > /dev/null
+
+  # check if the ros setup file is sourced.  
+  if [ "$ROS_DISTRO" == "kinetic" ]; then
+    if (grep 'source /opt/ros/kinetic/setup.bash' $HOME/.bashrc); then
+      echo "The ros setup.bash has been sourced."
+    else
+      echo "source /opt/ros/kinetic/setup.bash" >> ~/.bashrc
+    fi 
+  elif [ "$ROS_DISTRO" == "indigo" ]; then
+    if (grep 'source /opt/ros/indigo/setup.bash' $HOME/.bashrc); then
+      echo "The ros setup.bash has been sourced."
+    else
+      echo "source /opt/ros/indigo/setup.bash" >> ~/.bashrc
+    fi  
+  fi
+
+  
 
   if [ "$ROS_DISTRO" == "kinetic" ]; then
-      sudo apt-get -qq install ros-$ROS_DISTRO-opencv3 
+      sudo apt-get -qq install ros-$ROS_DISTRO-opencv3 > /dev/null
   fi
 
   source /opt/ros/$ROS_DISTRO/setup.bash
@@ -42,12 +59,8 @@ ros_install()
   # Prepare rosdep to install dependencies.
   echo "Updating rosdep ..."
   if [ ! -d /etc/ros/rosdep ]; then
-    sudo rosdep init 
+    sudo rosdep init > /dev/null
   fi
-
-  # Add Dataspeed packages
-  echo "Setting up Dataspeed apt and rosdep repositories"
-  bash <(wget -q -O - https://bitbucket.org/DataspeedInc/ros_binaries/raw/default/scripts/setup.bash)
 
   rosdep update
   sudo apt-get -qq install python-rosinstall
