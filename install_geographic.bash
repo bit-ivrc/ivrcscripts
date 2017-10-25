@@ -41,7 +41,7 @@ install_geographic_from_source()
         mkdir -p BUILD
         cd BUILD
         cmake ..
-        make_with_progress -j$(nproc)
+        make -j$(nproc)
         make test
         sudo make install > /dev/null
     fi
