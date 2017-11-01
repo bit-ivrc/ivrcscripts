@@ -25,5 +25,6 @@ Speed up github access from China.
 * install_ipopt.bash
 Ipopt version: 3.12.4
 
+* install_sogou.bash
 
 See [wiki](https://github.com/bit-ivrc/ivrcscripts/wiki) for more useful information.
