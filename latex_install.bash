@@ -3,16 +3,16 @@ set -e  # exit on first error
 
 main()
 {
-  install_texLive2017()
+  install_texLive2017
   
-  install_texStudio()
+  install_texStudio
 }
 
 install_texLive2017()
 {
   echo "Installing TeXLive2017 for ubuntu 16.04."
 
-  sudo wget -p ~/http://mirror.bit.edu.cn/CTAN/systems/texlive/Images/texlive2017.iso 
+  sudo wget -p ~/ http://mirror.bit.edu.cn/CTAN/systems/texlive/Images/texlive2017.iso 
 
   mkdir ~/tex
 
