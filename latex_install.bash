@@ -16,7 +16,7 @@ install_texLive2017()
 
   mkdir ~/tex
 
-  mount -t iso9660 ~/texlive2017.iso -o rw ~/tex
+  sudo mount -t iso9660 ~/texlive2017.iso -o rw ~/tex
 
   cd ~/tex
 
