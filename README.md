@@ -27,4 +27,8 @@ Ipopt version: 3.12.4
 
 * install_sogou.bash
 
+* latex_install.bash  
+This script will install TeXlive2017 and TeXStudio.Make sure that you have replace `/etc/apt/sources.list` with the sources mirror of BIT.
+
+
 See [wiki](https://github.com/bit-ivrc/ivrcscripts/wiki) for more useful information.
