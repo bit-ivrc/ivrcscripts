@@ -18,18 +18,16 @@ install_texLive2017()
 
     echo "texlive2017.iso has already been downloaded."
 
-    sudo mount -t iso9660 ~/texlive2017.iso -o rw ~/tex
-
   else
 
     echo "texlive2017.iso will be downloaded."
 
     sudo wget -P ~/ http://mirror.bit.edu.cn/CTAN/systems/texlive/Images/texlive2017.iso   
 
-    sudo mount -t iso9660 ~/texlive2017.iso -o rw ~/tex
-
   fi
 
+  sudo mount -t iso9660 ~/texlive2017.iso -o rw ~/tex
+  
   cd ~/tex
 
   sudo ./install-tl
