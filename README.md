@@ -33,7 +33,7 @@ Ipopt version: 3.12.4
 
 * latex_install.bash
 This script will install TeXlive2017 and TeXStudio.Make sure that you have replace /etc/apt/sources.list with the sources mirror of BIT. And there is at least 15G storage space in your /home directory.
-After the software has been installed,you can see this [website] (http://blog.csdn.net/up_com/article/details/51218458) can help you solve the problem of Chinese fonts.
+After the software has been installed,you can see this [website](http://blog.csdn.net/up_com/article/details/51218458) can help you solve the problem of Chinese fonts.
 
 
 See [wiki](https://github.com/bit-ivrc/ivrcscripts/wiki) for more useful information.
