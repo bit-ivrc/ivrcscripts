@@ -34,31 +34,66 @@ install_texLive2017()
       echo "Mounting the texlive2017.iso to ~/tex."
       sudo mount -t iso9660 ~/texlive2017.iso -o rw ~/tex
   fi
+
+  # check if the texlive2017 is installed 
+  if [ -n "$(find /usr/local/texlive/2017/bin/x86_64-linux -name 'tex' | head -1)" ]; then
+     echo "The texlive2017 exists in '/usr/local/texlive'"
+  else 
+     echo "Installing texlive2017 to '/usr/local'........"
   
-  cd ~/tex
+     cd ~/tex
 
-  sudo ./install-tl
+     sudo ./install-tl
+  fi
 
-  sudo sed -i '$a\export MANPATH=${MANPATH}:/usr/local/texlive/2017/texmf-dist/doc/man' ~/.bashrc
+  # configure the texlive path env
+  if ( grep 'export PATH=${PATH}:/usr/local/texlive/2017/bin/x86_64-linux' ~/.bashrc); then 
+     echo "The texlive path env variables have been set." 
+  else
+     echo "Set the path env for texlive2017.........."
+     
+     sudo sed -i '$a\export MANPATH=${MANPATH}:/usr/local/texlive/2017/texmf-dist/doc/man' ~/.bashrc
 
-  sudo sed -i '$a\export INFOPATH=${INFOPATH}:/usr/local/texlive/2017/texmf-dist/doc/info' ~/.bashrc
+     sudo sed -i '$a\export INFOPATH=${INFOPATH}:/usr/local/texlive/2017/texmf-dist/doc/info' ~/.bashrc
 
-  sudo sed -i '$a\export PATH=${PATH}:/usr/local/texlive/2017/bin/x86_64-linux' ~/.bashrc
+     sudo sed -i '$a\export PATH=${PATH}:/usr/local/texlive/2017/bin/x86_64-linux' ~/.bashrc
 
-  export PATH=$PATH:/usr/local/texlive/2017/bin/x86_64-linux
-
+     export PATH=$PATH:/usr/local/texlive/2017/bin/x86_64-linux
+  fi
+ 
   echo "TeXLive is installed on your computer."
 
-  echo "Installing TeXStudio for ubuntu 16.04."
 }
+
+
+vercmp() {
+    version1=$1 version2=$3 condition=$2
+
+    IFS=. v1_array=($version1) v2_array=($version2)
+    v1=$((v1_array[0] * 100 + v1_array[1] * 10 + v1_array[2]))
+    v2=$((v2_array[0] * 100 + v2_array[1] * 10 + v2_array[2]))
+    diff=$((v2 - v1))
+    [[ $condition = '='  ]] && ((diff == 0)) && return 0
+    [[ $condition = '!=' ]] && ((diff != 0)) && return 0
+    [[ $condition = '<'  ]] && ((diff >  0)) && return 0
+    [[ $condition = '<=' ]] && ((diff >= 0)) && return 0
+    [[ $condition = '>'  ]] && ((diff <  0)) && return 0
+    [[ $condition = '>=' ]] && ((diff <= 0)) && return 0
+    return 1
+}
+
 
 install_texStudio()
 {
-  wget -O texstudio-qt5.deb http://download.opensuse.org/repositories/home:/jsundermeyer/xUbuntu_16.04/amd64/texstudio_2.12.6-5+5.1_amd64.deb
-  sudo dpkg -i texstudio-qt5.deb && rm -rf texstudio-qt5.deb
-
-  echo "TeXStudio is installed on your computer."
-
+  ver=`texstudio --version | perl -pe '($_)=/([0-9]+([.][0-9]+)+)/'`
+  if vercmp "$ver" ">=" "2.12.6" ; then 
+     echo 'Your texstudio is up-to-date.'
+  else 
+     echo "Installing TeXStudio for ubuntu 16.04........"
+     wget -O texstudio-qt5.deb http://download.opensuse.org/repositories/home:/jsundermeyer/xUbuntu_16.04/amd64/texstudio_2.12.6-5+5.1_amd64.deb
+     sudo dpkg --install --force-overwrite texstudio-qt5.deb && rm -rf texstudio-qt5.deb
+     echo "TeXStudio is installed on your computer."
+  fi
   #texstudio && pkill -f 'texstudio'
 
   #echo "The texstudio will be configured"
