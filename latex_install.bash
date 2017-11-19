@@ -59,8 +59,9 @@ install_texLive2017()
 
 install_texStudio()
 { 
-    source /etc/environment    
-    sudo apt-get -y purge texstudio* 
+    source /etc/environment   
+    echo "Remove the old version of TexStudio......" 
+    cd /tmp && sudo apt-get -y purge texstudio* && sudo dpkg -r texstudio
     echo "Installing TeXStudio for ubuntu 16.04........"
     cd $SCRIPT_DIR
     wget -O texstudio-qt5.deb https://coding.net/u/aRagdoll/p/software_install/git/raw/master/texstudio_2.12.6-5%252B5.1_amd64.deb
@@ -68,13 +69,13 @@ install_texStudio()
     sudo dpkg --install --force-overwrite texstudio-qt5.deb && rm -rf texstudio-qt5.deb
     echo "TeXStudio is installed on your computer."
     echo "Installing the fonts for BIT thesis........."
-    install_msfonts
+    install_winfonts
     texstudio
 }
 
-install_msfonts()
+install_winfonts()
 {
-   echo "As it is downloading the MS fonts, this will take a while......"
+   echo "As it is downloading the windows fonts, this will take a while......"
    cd $SCRIPT_DIR
    wget http://mirror.bit.edu.cn/debian/pool/contrib/m/msttcorefonts/ttf-mscorefonts-installer_3.6_all.deb
    sudo dpkg -i ttf-mscorefonts-installer_3.6_all.deb && rm -rf ttf-mscorefonts-installer_3.6_all.deb
