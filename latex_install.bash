@@ -43,7 +43,7 @@ install_texLive2017()
      # configure the texlive path env
      if ( grep 'export PATH=${PATH}:/usr/local/texlive/2017/bin/x86_64-linux' ~/.bashrc); then 
          echo "The texlive path env variables have been set." 
-      else
+     else
          echo "Set the path env for texlive2017.........."
      
          sudo sed -i '$a\export MANPATH=${MANPATH}:/usr/local/texlive/2017/texmf-dist/doc/man' ~/.bashrc
@@ -55,11 +55,9 @@ install_texLive2017()
          sudo sed -i '$a\PATH=$PATH:/usr/local/texlive/2017/bin/x86_64-linux' /etc/environment
     
          source ~/.bashrc
+     fi
   fi
-
-  fi
-
-  }
+}
 
 
 install_texStudio()
