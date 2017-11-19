@@ -77,11 +77,18 @@ install_texStudio()
 
 install_winfonts()
 {
-   echo "As it is downloading the windows fonts, this will take a while......"
-   cd $SCRIPT_DIR
-   wget http://mirror.bit.edu.cn/debian/pool/contrib/m/msttcorefonts/ttf-mscorefonts-installer_3.6_all.deb
-   sudo dpkg -i ttf-mscorefonts-installer_3.6_all.deb && rm -rf ttf-mscorefonts-installer_3.6_all.deb
-   echo "MS fonts have been installed successfully."
+   cd $HOME
+   if [ ! -d winfonts ]; then
+     echo "As it is downloading the windows fonts, this will take a while......"
+     git clone https://git.coding.net/aRagdoll/winfonts.git 
+   else 
+     cd winfonts && git reset --hard && git checkout master && git pull && cd ..
+     echo "winfonts exists in $HOME."
+   fi
+   sudo cp -rf winfonts /usr/share/fonts/ 
+   cd /usr/share/fonts/winfonts && sudo rm -rf .git && sudo chmod 644 *
+   sudo mkfontscale && sudo mkfontdir && sudo fc-cache -fv
+   echo "Windows fonts have been installed successfully."
 }
 
 main
