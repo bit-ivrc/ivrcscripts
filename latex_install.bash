@@ -1,5 +1,6 @@
 #!/bin/bash
 set -e  # exit on first error
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 main()
 {
@@ -36,27 +37,29 @@ install_texLive2017()
          sudo mount -t iso9660 ~/texlive2017.iso -o rw ~/tex
      fi
      cd ~/tex
-     sudo ./install-tl
-  fi
-
-  # configure the texlive path env
-  if ( grep 'export PATH=${PATH}:/usr/local/texlive/2017/bin/x86_64-linux' ~/.bashrc); then 
-     echo "The texlive path env variables have been set." 
-  else
-     echo "Set the path env for texlive2017.........."
+     echo "Start to install the texlive2017 with a customized profile"
+     sudo ./install-tl -profile $SCRIPT_DIR/texlive.profile
+     echo "TeXLive is installed on your computer."
+     # configure the texlive path env
+     if ( grep 'export PATH=${PATH}:/usr/local/texlive/2017/bin/x86_64-linux' ~/.bashrc); then 
+         echo "The texlive path env variables have been set." 
+      else
+         echo "Set the path env for texlive2017.........."
      
-     sudo sed -i '$a\export MANPATH=${MANPATH}:/usr/local/texlive/2017/texmf-dist/doc/man' ~/.bashrc
+         sudo sed -i '$a\export MANPATH=${MANPATH}:/usr/local/texlive/2017/texmf-dist/doc/man' ~/.bashrc
 
-     sudo sed -i '$a\export INFOPATH=${INFOPATH}:/usr/local/texlive/2017/texmf-dist/doc/info' ~/.bashrc
+         sudo sed -i '$a\export INFOPATH=${INFOPATH}:/usr/local/texlive/2017/texmf-dist/doc/info' ~/.bashrc
 
-     sudo sed -i '$a\export PATH=${PATH}:/usr/local/texlive/2017/bin/x86_64-linux' ~/.bashrc
+         sudo sed -i '$a\export PATH=${PATH}:/usr/local/texlive/2017/bin/x86_64-linux' ~/.bashrc
 
-     export PATH=$PATH:/usr/local/texlive/2017/bin/x86_64-linux
+         sudo sed -i '$a\PATH=$PATH:/usr/local/texlive/2017/bin/x86_64-linux' /etc/environment
+    
+         source ~/.bashrc
   fi
- 
-  echo "TeXLive is installed on your computer."
 
-}
+  fi
+
+  }
 
 
 install_texStudio()
