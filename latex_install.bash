@@ -77,7 +77,7 @@ install_msfonts()
 {
    echo "As it is downloading the MS fonts, this will take a while......"
    cd $SCRIPT_DIR
-   wget http://ftp.us.debian.org/debian/pool/contrib/m/msttcorefonts/ttf-mscorefonts-installer_3.6_all.deb
+   wget http://ftp.cn.debian.org/debian/pool/contrib/m/msttcorefonts/ttf-mscorefonts-installer_3.6_all.deb
    sudo dpkg -i ttf-mscorefonts-installer_3.6_all.deb && rm -rf ttf-mscorefonts-installer_3.6_all.deb
    echo "MS fonts have been installed successfully."
 }
