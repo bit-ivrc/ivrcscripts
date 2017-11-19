@@ -5,7 +5,6 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 main()
 {
   install_texLive2017
-  
   install_texStudio
 }
 
@@ -38,7 +37,7 @@ install_texLive2017()
      fi
      cd ~/tex
      echo "Start to install the texlive2017 with a customized profile"
-     sudo ./install-tl -profile $SCRIPT_DIR/texlive.profile
+     sudo ./install-tl -profile $SCRIPT_DIR/ivrc.profile
      echo "TeXLive is installed on your computer."
      # configure the texlive path env
      if ( grep 'export PATH=${PATH}:/usr/local/texlive/2017/bin/x86_64-linux' ~/.bashrc); then 
@@ -52,22 +51,24 @@ install_texLive2017()
 
          sudo sed -i '$a\export PATH=${PATH}:/usr/local/texlive/2017/bin/x86_64-linux' ~/.bashrc
 
-         sudo sed -i '$a\PATH=$PATH:/usr/local/texlive/2017/bin/x86_64-linux' /etc/environment
-    
-         source ~/.bashrc
+         sudo sed -i '$s/"$//' /etc/environment
+         sudo sed -i '$a\:/usr/local/texlive/2017/bin/x86_64-linux"' /etc/environment
      fi
   fi
 }
 
 
 install_texStudio()
-{
-    sudo apt-get purge texstudio* 
+{ 
+    source /etc/environment    
+    sudo apt-get -y purge texstudio* 
     echo "Installing TeXStudio for ubuntu 16.04........"
+    cd $SCRIPT_DIR
     wget -O texstudio-qt5.deb https://coding.net/u/aRagdoll/p/software_install/git/raw/master/texstudio_2.12.6-5%252B5.1_amd64.deb
     sudo apt-get -y install libpoppler-qt5-1 libqt5script5
     sudo dpkg --install --force-overwrite texstudio-qt5.deb && rm -rf texstudio-qt5.deb
     echo "TeXStudio is installed on your computer."
+    texstudio
 }
 
 main
