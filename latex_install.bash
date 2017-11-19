@@ -59,10 +59,12 @@ install_texLive2017()
 
 install_texStudio()
 { 
-    source /etc/environment   
-    echo "Remove the old version of TexStudio......" 
-    cd /tmp && sudo apt-get -y purge texstudio* && sudo dpkg -r texstudio
     echo "Installing TeXStudio for ubuntu 16.04........"
+    export MANPATH=${MANPATH}:/usr/local/texlive/2017/texmf-dist/doc/man
+    export INFOPATH=${INFOPATH}:/usr/local/texlive/2017/texmf-dist/doc/info
+    export PATH=${PATH}:/usr/local/texlive/2017/bin/x86_64-linux
+    echo "Remove the old version TexStudio......" 
+    cd /tmp && sudo apt-get -y purge texstudio* && sudo dpkg -r texstudio
     cd $SCRIPT_DIR
     wget -O texstudio-qt5.deb https://coding.net/u/aRagdoll/p/software_install/git/raw/master/texstudio_2.12.6-5%252B5.1_amd64.deb
     sudo apt-get -y install libpoppler-qt5-1 libqt5script5
