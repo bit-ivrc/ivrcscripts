@@ -51,8 +51,7 @@ install_texLive2017()
 
          sudo sed -i '$a\export PATH=${PATH}:/usr/local/texlive/2017/bin/x86_64-linux' ~/.bashrc
 
-         sudo sed -i '$s/"$//' /etc/environment
-         sudo sed -i '$a\:/usr/local/texlive/2017/bin/x86_64-linux"' /etc/environment
+         sudo sed -i '$a\PATH="${PATH}:/usr/local/texlive/2017/bin/x86_64-linux"' /etc/environment
      fi
   fi
 }
