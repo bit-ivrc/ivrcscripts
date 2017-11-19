@@ -51,7 +51,8 @@ install_texLive2017()
 
          sudo sed -i '$a\export PATH=${PATH}:/usr/local/texlive/2017/bin/x86_64-linux' ~/.bashrc
 
-         sudo sed -i '$a\PATH="${PATH}:/usr/local/texlive/2017/bin/x86_64-linux"' /etc/environment
+         sudo sed -i '$s/"$//' /etc/environment
+         sudo sed -i '$a\:/usr/local/texlive/2017/bin/x86_64-linux"' /etc/environment
      fi
   fi
 }
@@ -67,7 +68,18 @@ install_texStudio()
     sudo apt-get -y install libpoppler-qt5-1 libqt5script5
     sudo dpkg --install --force-overwrite texstudio-qt5.deb && rm -rf texstudio-qt5.deb
     echo "TeXStudio is installed on your computer."
+    echo "Installing the fonts for BIT thesis........."
+    install_msfonts
     texstudio
+}
+
+install_msfonts()
+{
+   echo "As it is downloading the MS fonts, this will take a while......"
+   cd $SCRIPT_DIR
+   wget http://ftp.us.debian.org/debian/pool/contrib/m/msttcorefonts/ttf-mscorefonts-installer_3.6_all.deb
+   sudo dpkg -i ttf-mscorefonts-installer_3.6_all.deb && rm -rf ttf-mscorefonts-installer_3.6_all.deb
+   echo "MS fonts have been installed successfully."
 }
 
 main
