@@ -34,7 +34,9 @@ Ipopt version: 3.12.4
 * latex_install.bash
 This script will install TeXlive2017 and TeXStudio.It will also configure the environment of TeXStudio and install the Chinese fonts.
 Make sure that you have replace /etc/apt/sources.list with the sources mirror of BIT. And there is at least 15G storage space in your /home directory.
+Once the script has finished,restart the computer.   
 The LaTeX template of BIT is on this [website](https://coding.net/u/aRagdoll/p/LaTex-template/git). 
+
 
 
 
