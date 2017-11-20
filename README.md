@@ -24,7 +24,7 @@ This script will install the ROS according to your Ubuntu version automatically.
 Speed up github access from China.
 
 
-* install_ipopt.bash
+* install_ipopt.bash  
 Ipopt version: 3.12.4
 
 
