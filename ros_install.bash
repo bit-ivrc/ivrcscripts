@@ -23,32 +23,34 @@ ros_install()
   fi
   source $SCRIPT_DIR/identify_environment.bash
 
-  sudo sh -c "echo \"deb http://packages.ros.org/ros/ubuntu $UBUNTU_CODENAME main\" > /etc/apt/sources.list.d/ros-latest.list"
-  wget http://packages.ros.org/ros.key -O - | sudo apt-key add -
+  sudo sh -c '. /etc/lsb-release && echo "deb http://ros.exbot.net/rospackage/ros/ubuntu/ xenial main" > /etc/apt/sources.list.d/ros-latest.list'
+
+  # check if there is a problem here
+  sudo apt-key adv --recv-key --keyserver keyserver.ubuntu.com "5523BAEEB01FA116"
 
   echo "Updating package lists ..."
-  sudo apt-get -qq update
+  sudo apt-get -qq update --fix-missing
   echo "Installing ROS $ROS_DISTRO ..."
-  sudo apt-get -qq install ros-$ROS_DISTRO-desktop > /dev/null
+  sudo apt-get -y install ros-$ROS_DISTRO-desktop
   sudo apt-get -qq install python-catkin-tools > /dev/null
   sudo apt-get -qq install ros-$ROS_DISTRO-catkin > /dev/null
 
-  # check if the ros setup file is sourced.  
+  # check if the ros setup file is sourced.
   if [ "$ROS_DISTRO" == "kinetic" ]; then
     if (grep 'source /opt/ros/kinetic/setup.bash' $HOME/.bashrc); then
       echo "The ros setup.bash has been sourced."
     else
       echo "source /opt/ros/kinetic/setup.bash" >> ~/.bashrc
-    fi 
+    fi
   elif [ "$ROS_DISTRO" == "indigo" ]; then
     if (grep 'source /opt/ros/indigo/setup.bash' $HOME/.bashrc); then
       echo "The ros setup.bash has been sourced."
     else
       echo "source /opt/ros/indigo/setup.bash" >> ~/.bashrc
-    fi  
+    fi
   fi
 
-  
+
 
   if [ "$ROS_DISTRO" == "kinetic" ]; then
       sudo apt-get -qq install ros-$ROS_DISTRO-opencv3 > /dev/null
@@ -83,6 +85,16 @@ create_catkin_ws()
         catkin build
         echo "Catkin workspace created successfully."
     fi
+
+
+    if (grep 'source ~/catkin_ws/devel/setup.bash' $HOME/.bashrc); then
+      source $HOME/.bashrc
+      echo "The ros catkin_ws/devel/setup.bash has been sourced."
+    else
+      echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
+      source $HOME/.bashrc
+    fi
+
 }
 
 # Install system dependencies listed in ROS packages' package.xml
