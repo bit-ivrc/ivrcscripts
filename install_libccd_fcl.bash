@@ -17,6 +17,7 @@ install_libccd_fcl()
     make && sudo make install > /dev/null
     echo "libccd is installed succesfully."
   fi
+  sudo apt-get install -y liboctomap-dev
   if (ldconfig -p | grep libfcli); then
     echo "fcl has been installed."
   else
