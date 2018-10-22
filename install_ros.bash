@@ -6,11 +6,11 @@ CATKIN_WS_DIR="$HOME/catkin_ws"
 
 main()
 {
-  ros_install
+  install_ros
   create_catkin_ws
 }
 
-ros_install()
+install_ros()
 {
   if [ "${UBUNTU_CODENAME}" == "trusty" ]; then
     echo "Installing ros indigo ........."
