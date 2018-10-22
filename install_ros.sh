@@ -23,7 +23,7 @@ ros_install()
   fi
   source $SCRIPT_DIR/identify_environment.bash
 
-  sudo sh -c '. /etc/lsb-release && echo "deb http://ros.exbot.net/rospackage/ros/ubuntu/ xenial main" > /etc/apt/sources.list.d/ros-latest.list'
+  sudo sh -c '. /etc/lsb-release && echo "deb http://mirrors.tuna.tsinghua.edu.cn/ros/ubuntu/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
 
   # check if there is a problem here
   sudo apt-key adv --recv-key --keyserver keyserver.ubuntu.com "5523BAEEB01FA116"
