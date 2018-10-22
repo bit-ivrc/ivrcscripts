@@ -6,13 +6,30 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 main()
 {
-  source $SCRIPT_DIR/identify_environment.bash
+  identify_environment
   if [ "$ROS_DISTRO" == "indigo" ]; then
     echo "installing dependencies, download opencv, install opencv ......"
     install_dependencies
     download_opencv
     install_opencv
   fi
+}
+
+# get UBUNTU_CODENAME, ROS_DISTRO, REPO_DIR, CATKIN_DIR
+identify_environment()
+{
+    UBUNTU_CODENAME=$(lsb_release -s -c)
+    case $UBUNTU_CODENAME in
+      trusty)
+        ROS_DISTRO=indigo;;
+      xenial)
+        ROS_DISTRO=kinetic;;
+      *)
+        echo "Unsupported version of Ubuntu detected. Only trusty (14.04.*) and xenial (16.04.*) are currently supported."
+        exit 1
+    esac
+    REPO_DIR=$(dirname "$SCRIPT_DIR")
+    CATKIN_DIR="$HOME/catkin_ws"
 }
 
 install_dependencies()

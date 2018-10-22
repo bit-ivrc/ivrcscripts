@@ -21,7 +21,7 @@ install_ros()
   else
     echo "This is a script only for ubuntu 14.04 and 16.04."
   fi
-  source $SCRIPT_DIR/identify_environment.bash
+  identify_environment
 
   sudo sh -c '. /etc/lsb-release && echo "deb http://mirrors.ustc.edu.cn/ros/ubuntu/ $DISTRIB_CODENAME main" > /etc/apt/sources.list.d/ros-latest.list'
 
@@ -95,6 +95,23 @@ create_catkin_ws()
       source $HOME/.bashrc
     fi
 
+}
+
+# get UBUNTU_CODENAME, ROS_DISTRO, REPO_DIR, CATKIN_DIR
+identify_environment()
+{
+    UBUNTU_CODENAME=$(lsb_release -s -c)
+    case $UBUNTU_CODENAME in
+      trusty)
+        ROS_DISTRO=indigo;;
+      xenial)
+        ROS_DISTRO=kinetic;;
+      *)
+        echo "Unsupported version of Ubuntu detected. Only trusty (14.04.*) and xenial (16.04.*) are currently supported."
+        exit 1
+    esac
+    REPO_DIR=$(dirname "$SCRIPT_DIR")
+    CATKIN_DIR="$HOME/catkin_ws"
 }
 
 # Install system dependencies listed in ROS packages' package.xml
