@@ -17,8 +17,6 @@ before_install:
   - docker run -d -it --name ci_xenial -v $(pwd):/home/ivrcscripts aragdoll/docker_ubuntu:xenial
 
 install:
-  - docker exec -it ci_xenial /bin/bash -c "/home/ivrcscripts/install_ros.sh"
-  - docker exec -it ci_xenial /bin/bash -c "/home/ivrcscripts/install_github_lfs.sh"
   - docker exec -it ci_xenial /bin/bash -c "/home/ivrcscripts/install_grid_map.sh"
   - docker exec -it ci_xenial /bin/bash -c "/home/ivrcscripts/install_gtest.sh"
   - docker exec -it ci_xenial /bin/bash -c "/home/ivrcscripts/install_ipopt.sh"
@@ -31,6 +29,7 @@ install:
   - docker exec -it ci_xenial /bin/bash -c "/home/ivrcscripts/install_snopt.sh"
   - docker exec -it ci_xenial /bin/bash -c "/home/ivrcscripts/install_sougou.sh"
   - docker exec -it ci_xenial /bin/bash -c "/home/ivrcscripts/install_vrep.sh"
+  - docker exec -it ci_xenial /bin/bash -c "/home/ivrcscripts/install_github_lfs.sh"
 
 script:
   - docker exec -it ci_xenial /bin/bash -c "echo 'CI is working!'"
