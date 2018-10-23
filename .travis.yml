@@ -21,7 +21,6 @@ install:
 
 
 script:
-  # trigger the build
   - docker exec -it ci_xenial /bin/bash -c "echo 'CI is working!'"
 
 
