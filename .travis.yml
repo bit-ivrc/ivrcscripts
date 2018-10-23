@@ -1,0 +1,29 @@
+sudo: required
+
+services:
+  - docker
+
+# show correct language tag in Travis CI build
+language: cpp
+
+env:
+  matrix:
+    - INSTALL_ROS: true    ## use ubuntu docker image from docker hub
+
+
+before_install:
+  - pwd
+  # this cmd will run docker, and copy the contents of the repo root directory to /home/ivrcscripts folder
+  - docker run -d -it --name ci_xenial -v $(pwd):/home/ivrcscripts aragdoll/docker_ubuntu:xenial
+
+install:
+  - docker exec -it ci_xenial /bin/bash -c "/home/ivrcscripts/install_ros.sh"
+
+
+script:
+  - docker exec -it ci_xenial /bin/bash -c "echo 'CI is working!'"
+
+
+
+notifications:
+    email: false
