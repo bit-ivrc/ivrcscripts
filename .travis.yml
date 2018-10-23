@@ -18,7 +18,19 @@ before_install:
 
 install:
   - docker exec -it ci_xenial /bin/bash -c "/home/ivrcscripts/install_ros.sh"
-
+  - docker exec -it ci_xenial /bin/bash -c "/home/ivrcscripts/install_github_lfs.sh"
+  - docker exec -it ci_xenial /bin/bash -c "/home/ivrcscripts/install_grid_map.sh"
+  - docker exec -it ci_xenial /bin/bash -c "/home/ivrcscripts/install_gtest.sh"
+  - docker exec -it ci_xenial /bin/bash -c "/home/ivrcscripts/install_ipopt.sh"
+  - docker exec -it ci_xenial /bin/bash -c "/home/ivrcscripts/install_latex.sh"
+  - docker exec -it ci_xenial /bin/bash -c "/home/ivrcscripts/install_libccd_fcl.sh"
+  - docker exec -it ci_xenial /bin/bash -c "/home/ivrcscripts/install_nlopt.sh"
+  - docker exec -it ci_xenial /bin/bash -c "/home/ivrcscripts/install_octomap.sh"
+  - docker exec -it ci_xenial /bin/bash -c "/home/ivrcscripts/install_opencv3.sh"
+  - docker exec -it ci_xenial /bin/bash -c "/home/ivrcscripts/install_ros.sh"
+  - docker exec -it ci_xenial /bin/bash -c "/home/ivrcscripts/install_snopt.sh"
+  - docker exec -it ci_xenial /bin/bash -c "/home/ivrcscripts/install_sougou.sh"
+  - docker exec -it ci_xenial /bin/bash -c "/home/ivrcscripts/install_vrep.sh"
 
 script:
   - docker exec -it ci_xenial /bin/bash -c "echo 'CI is working!'"
