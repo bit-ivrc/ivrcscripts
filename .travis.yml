@@ -23,18 +23,13 @@ before_install:
 
 
 install:
-  - if [ $INSTALL_ROS == 'true' ]; then
+  - if [ $INSTALL_ROS == 'false' ]; then
       docker exec -it ci_xenial /bin/bash -c "cd /home/ivrcscripts;
-      ./install_vrep.sh;
-      ./install_opencv3.sh;
-      ./install_github_lfs.sh;
-      ./install_cppad.sh;
-      ./install_ipopt.sh;
-      ./install_sougou.sh;
-      ./install_gtest.sh;
+      ./install_gtest.sh; 
       ./install_libccd_fcl.sh;
       ./install_nlopt.sh;
       ./install_octomap.sh";
+      ./install_sougou.sh y;
     else
       docker exec -it ci_xenial_ros /bin/bash -c "cd /home/ivrcscripts;
       ./install_grid_map.sh;
