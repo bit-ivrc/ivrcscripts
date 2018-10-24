@@ -48,7 +48,9 @@ install_vrep()
         echo "Installing V-REP ..."
         mkdir -p "$VREP_INSTALL_DIR"
         (cd "$VREP_INSTALL_DIR"
-        wget http://coppeliarobotics.com/files/$VREP_VERSION.tar.gz
+        rm -rf $VREP_VERSION*
+        wget https://qcloud.coding.net/u/aRagdoll/p/vrep_pro_edu/git/raw/master/$VREP_VERSION.tar.gz
+        #wget http://coppeliarobotics.com/files/$VREP_VERSION.tar.gz
         tar -xzf $VREP_VERSION.tar.gz
         rm -rf $VREP_VERSION.tar.gz)
         echo "V-REP installed successfully"
