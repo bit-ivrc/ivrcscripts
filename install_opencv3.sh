@@ -7,7 +7,7 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 main()
 {
   identify_environment
-  if [ "$ROS_DISTRO" == "indigo" ]; then
+  if [ "$ROS_DISTRO" == "kinetic" ]; then
     echo "installing dependencies, download opencv, install opencv ......"
     install_dependencies
     download_opencv
@@ -20,12 +20,10 @@ identify_environment()
 {
     UBUNTU_CODENAME=$(lsb_release -s -c)
     case $UBUNTU_CODENAME in
-      trusty)
-        ROS_DISTRO=indigo;;
       xenial)
         ROS_DISTRO=kinetic;;
       *)
-        echo "Unsupported version of Ubuntu detected. Only trusty (14.04.*) and xenial (16.04.*) are currently supported."
+        echo "Unsupported version of Ubuntu detected. Only xenial (16.04.*) are currently supported."
         exit 1
     esac
     REPO_DIR=$(dirname "$SCRIPT_DIR")

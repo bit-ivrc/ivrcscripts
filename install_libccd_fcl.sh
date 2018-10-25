@@ -5,7 +5,7 @@ DIR=/tmp
 main() {
   install_apt_pkgs
   install_libccd
-  sudo ldconfig # load the installd
+  sudo ldconfig # load the installd library
   install_fcl
 }
 
