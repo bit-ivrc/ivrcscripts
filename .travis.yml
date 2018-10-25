@@ -27,17 +27,23 @@ install:
       docker exec -it ci_xenial /bin/bash -c "apt-get update;
       apt-get install -y build-essential cmake curl lsb-release doxygen make gcc g++ sudo wget libqt4-dev libqt4-opengl-dev libqglviewer-dev-qt4 libboost-all-dev;
       cd /home/ivrcscripts;
-      ./install_gtest.sh; 
+      ./install_ipopt.sh;
+      ./install_cppad.sh;
       ./install_libccd_fcl.sh;
-      ./install_nlopt.sh;
-      ./install_octomap.sh";
-      ./install_sougou.sh;
+      ./install_ros.sh;
+#      ./install_nlopt.sh;
+#      ./install_octomap.sh;
+#      ./install_vrep.sh;
+      ./install_opencv3.sh;
+#      ./install_github_lfs.sh;
+#      ./install_gtest.sh; 
+      ./install_sougou.sh";
     else
       docker exec -it ci_xenial_ros /bin/bash -c "apt-get update;
       apt-get install -y build-essential cmake curl lsb-release doxygen make gcc g++ sudo wget libqt4-dev libqt4-opengl-dev libqglviewer-dev-qt4 libboost-all-dev;
       cd /home/ivrcscripts;
-      ./install_grid_map.sh;
-      ./install_geographic.sh";
+      ./install_geographic.sh;
+      ./install_grid_map.sh";
     fi
   #- docker exec -it ci_xenial /bin/bash -c "bash /home/ivrcscripts/install_grid_map.sh"
   #- docker exec -it ci_xenial /bin/bash -c "/home/ivrcscripts/install_gtest.sh"

@@ -2,7 +2,14 @@
 set -e  # exit on first error
 DIR=/tmp
 
-install_libccd_fcl()
+main()
+{
+#  install_libccd
+  install_fcl
+}
+
+
+install_libccd()
 {
   if (ldconfig -p | grep libccde); then
     echo "libccd has been installed."
@@ -17,6 +24,10 @@ install_libccd_fcl()
     make && sudo make install > /dev/null
     echo "libccd is installed succesfully."
   fi
+}
+
+install_fcl()
+{
   sudo apt-get install -y liboctomap-dev
   if (ldconfig -p | grep libfcli); then
     echo "fcl has been installed."
@@ -27,12 +38,11 @@ install_libccd_fcl()
     git clone --branch 0.5.0 https://github.com/flexible-collision-library/fcl.git
     cd fcl
     mkdir -p build && cd build
-    cmake ..
-    make -j8 > /dev/null
+    cmake -DCMAKE_BUILD_TYPE=Release -DFCL_TREAT_WARNINGS_AS_ERRORS=ON ..
+    make -j4 > /dev/null
     sudo -E make install > /dev/null
     echo "fcl is installed successfully."
   fi
 }
 
-
-install_libccd_fcl
+main

@@ -1,8 +1,6 @@
 #!/bin/bash
 set -e  # exit on first error
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-UBUNTU_CODENAME=$(lsb_release -sc)
-CATKIN_WS_DIR="$HOME/catkin_ws"
 
 main()
 {
@@ -12,15 +10,6 @@ main()
 
 install_ros()
 {
-  if [ "${UBUNTU_CODENAME}" == "trusty" ]; then
-    echo "Installing ros indigo ........."
-    ROS_DISTRO="indigo"
-  elif [ "${UBUNTU_CODENAME}" == "xenial" ]; then
-    echo "Installing ros kinetic.........."
-    ROS_DISTRO="kinetic"
-  else
-    echo "This is a script only for ubuntu 14.04 and 16.04."
-  fi
   identify_environment
 
   sudo sh -c '. /etc/lsb-release && echo "deb http://mirrors.ustc.edu.cn/ros/ubuntu/ $DISTRIB_CODENAME main" > /etc/apt/sources.list.d/ros-latest.list'
@@ -41,12 +30,6 @@ install_ros()
       echo "The ros setup.bash has been sourced."
     else
       echo "source /opt/ros/kinetic/setup.bash" >> ~/.bashrc
-    fi
-  elif [ "$ROS_DISTRO" == "indigo" ]; then
-    if (grep 'source /opt/ros/indigo/setup.bash' $HOME/.bashrc); then
-      echo "The ros setup.bash has been sourced."
-    else
-      echo "source /opt/ros/indigo/setup.bash" >> ~/.bashrc
     fi
   fi
 
@@ -102,16 +85,14 @@ identify_environment()
 {
     UBUNTU_CODENAME=$(lsb_release -s -c)
     case $UBUNTU_CODENAME in
-      trusty)
-        ROS_DISTRO=indigo;;
       xenial)
         ROS_DISTRO=kinetic;;
       *)
-        echo "Unsupported version of Ubuntu detected. Only trusty (14.04.*) and xenial (16.04.*) are currently supported."
+        echo "Unsupported version of Ubuntu detected. Only xenial (16.04.*) are currently supported."
         exit 1
     esac
     REPO_DIR=$(dirname "$SCRIPT_DIR")
-    CATKIN_DIR="$HOME/catkin_ws"
+    CATKIN_WS_DIR="$HOME/catkin_ws"
 }
 
 # Install system dependencies listed in ROS packages' package.xml
