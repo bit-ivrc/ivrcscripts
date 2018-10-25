@@ -24,14 +24,17 @@ before_install:
 
 install:
   - if [ $INSTALL_ROS == 'false' ]; then
-      docker exec -it ci_xenial /bin/bash -c "cd /home/ivrcscripts;
+      docker exec -it ci_xenial /bin/bash -c "apt-get update;
+      apt-get install -y build-essential cmake curl lsb-release doxygen make gcc g++ sudo wget libqt4-dev libqt4-opengl-dev libqglviewer-dev-qt4;
+      cd /home/ivrcscripts;
       ./install_gtest.sh; 
       ./install_libccd_fcl.sh;
       ./install_nlopt.sh;
       ./install_octomap.sh";
-      ./install_sougou.sh y;
     else
-      docker exec -it ci_xenial_ros /bin/bash -c "cd /home/ivrcscripts;
+      docker exec -it ci_xenial_ros /bin/bash -c "apt-get update;
+      apt-get install -y build-essential cmake curl lsb-release doxygen make gcc g++ sudo wget libqt4-dev libqt4-opengl-dev libqglviewer-dev-qt4;
+      cd /home/ivrcscripts;
       ./install_grid_map.sh;
       ./install_geographic.sh";
     fi

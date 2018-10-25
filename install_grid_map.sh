@@ -14,6 +14,15 @@ main()
 
   sudo apt-get install -qq ros-$ROS_DISTRO-pcl-ros ros-$ROS_DISTRO-costmap-2d
 
+  if [ ! -d $CATKIN_WS ]; then
+    echo "catkin_ws does not exist! create ..."
+    mkdir $CATKIN_WS
+  fi
+  if [ ! -d $CATKIN_WS/src ]; then
+    echo "catkin_ws/src does not exist! create ..."
+    mkdir $CATKIN_WS/src
+  fi
+
   cd $CATKIN_WS/src
   if [ "$ROS_DISTRO" == "kinetic" ]; then
     sudo apt-get install -qq ros-$ROS_DISTRO-grid-map
