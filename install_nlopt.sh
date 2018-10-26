@@ -2,6 +2,17 @@
 
 set -e # exit on first error
 
+main() {
+  install_apt_pkgs
+  install_nlopt
+}
+
+
+install_apt_pkgs() {
+  sudo apt-get update
+  sudo apt-get -y install cmake
+}
+
 install_nlopt()
 {
 
@@ -14,4 +25,4 @@ install_nlopt()
     sudo make install
 }
 
-install_nlopt
+main

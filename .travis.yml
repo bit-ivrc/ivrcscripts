@@ -8,8 +8,8 @@ language: cpp
 
 env:
   matrix:
-    - SCRIPT_NAME: install_bit_source_list.sh    ## use ubuntu docker image from docker hub
-      INSTALL_ROS: false
+#    - SCRIPT_NAME: install_bit_source_list.sh
+#      INSTALL_ROS: false
 
     - SCRIPT_NAME: install_ceres.sh
       INSTALL_ROS: false
@@ -17,35 +17,32 @@ env:
     - SCRIPT_NAME: install_cppad.sh
       INSTALL_ROS: false
 
-    - SCRIPT_NAME: install_github_lfs.sh
-      INSTALL_ROS: false
+#    - SCRIPT_NAME: install_github_lfs.sh
+#      INSTALL_ROS: false
 
     - SCRIPT_NAME: install_gtest.sh
       INSTALL_ROS: false
 
-    - SCRIPT_NAME: install_libccd_fcl.sh
-      INSTALL_ROS: false
+#    - SCRIPT_NAME: install_libccd_fcl.sh
+#      INSTALL_ROS: false
 
     - SCRIPT_NAME: install_nlopt.sh
       INSTALL_ROS: false
 
-    - SCRIPT_NAME: install_octomap.sh
-      INSTALL_ROS: false
-
-    - SCRIPT_NAME: install_opencv3.sh
-      INSTALL_ROS: false
+#    - SCRIPT_NAME: install_octomap.sh
+#      INSTALL_ROS: false
 
     - SCRIPT_NAME: install_snopt.sh
       INSTALL_ROS: false
 
-    - SCRIPT_NAME: install_sougou.sh
-      INSTALL_ROS: false
+#    - SCRIPT_NAME: install_sougou.sh
+#      INSTALL_ROS: false
 
-    - SCRIPT_NAME: install_vrep.sh
-      INSTALL_ROS: false
+#    - SCRIPT_NAME: install_vrep.sh
+#      INSTALL_ROS: false
 
-    - SCRIPT_NAME: install_ros.sh
-      INSTALL_ROS: false
+#    - SCRIPT_NAME: install_ros.sh
+#      INSTALL_ROS: false
 
     - SCRIPT_NAME: install_geographic.sh
       INSTALL_ROS: true
@@ -64,12 +61,10 @@ before_install:
 
 install:
   - if [ $INSTALL_ROS == 'false' ]; then
-      docker exec -it ci_xenial /bin/bash -c "apt-get update;
-      cd /home/ivrcscripts;
+      docker exec -it ci_xenial /bin/bash -c "\cd /home/ivrcscripts;
       ./$SCRIPT_NAME";
     else
-      docker exec -it ci_xenial_ros /bin/bash -c "apt-get update;
-      cd /home/ivrcscripts;
+      docker exec -t ci_xenial_ros /bin/bash -c "\cd /home/ivrcscripts;
       ./$SCRIPT_NAME";
     fi
 

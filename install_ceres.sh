@@ -4,6 +4,12 @@ UBUNTU_VERSION=`lsb_release --release | cut -f2`
 SRC_PREFIX_PATH="/usr/local/src/"
 CERES_VERSION=1.12.0
 
+main(){
+    if [ $UBUNTU_VERSION == "16.04" ]; then
+        install_dependencies
+        install_ceres_solver
+    fi   
+}
 
 install_dependencies() {
     apt-get update -qq
@@ -48,12 +54,4 @@ install_ceres_solver() {
 
 
 # MAIN
-if [ $UBUNTU_VERSION == "16.04" ]; then
-    install_dependencies
-    install_ceres_solver
-
-elif [ $UBUNTU_VERSION == "14.04" ]; then
-    install_dependencies
-    install_suitesparse_fix
-    install_ceres_solver
-fi
+main

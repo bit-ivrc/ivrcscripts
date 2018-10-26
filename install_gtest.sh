@@ -2,19 +2,16 @@
 
 main() 
 {
-	install_gtest
+  install_gtest
 }
 
 
 install_gtest()
 {
-	sudo apt-get install -qq libgtest-dev
+  sudo apt-get update
+  sudo apt-get install -qq libgtest-dev
 }
 
+main
 
-install_gtest
-
-
-
-###  cmake usage 
 

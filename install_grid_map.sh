@@ -6,7 +6,7 @@ set -e  # exit on first error
 main()
 {
   identify_environment
-
+  sudo apt-get update
   sudo apt-get install -qq ros-$ROS_DISTRO-pcl-ros ros-$ROS_DISTRO-costmap-2d
 
   if [ ! -d $CATKIN_WS ]; then

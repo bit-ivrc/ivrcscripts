@@ -1,5 +1,17 @@
 #!/bin/bash
 set -e
+
+main()
+{
+  install_apt_pkgs
+  install_cppad
+}
+
+install_apt_pkgs() {
+  sudo apt-get update
+  sudo apt-get -y install cmake
+}
+
 install_cppad()
 {
     echo "Prepare to install CppAD ..."
@@ -27,4 +39,5 @@ install_cppad()
         rm -rf $CppAD-$VERSION
     fi
 }
-install_cppad
+
+main
