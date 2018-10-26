@@ -56,16 +56,14 @@ before_install:
   - if [ $INSTALL_ROS == 'false' ]; then
       docker run -d -it --name ci_xenial -v $(pwd):/home/ivrcscripts aragdoll/docker_ubuntu:xenial;
     else
-      docker run -d --name ci_xenial_ros -v $(pwd):/home/ivrcscripts aragdoll/docker_ubuntu:xenial_ros_kinetic;
+      docker run -d -it --name ci_xenial_ros -v $(pwd):/home/ivrcscripts aragdoll/docker_ubuntu:xenial_ros_kinetic;
     fi
 
 install:
   - if [ $INSTALL_ROS == 'false' ]; then
-      docker exec -it ci_xenial /bin/bash -c "\cd /home/ivrcscripts;
-      ./$SCRIPT_NAME";
+      docker exec -it ci_xenial /bin/bash -c "/home/ivrcscripts/$SCRIPT_NAME";
     else
-      docker exec -t ci_xenial_ros /bin/bash -c "\cd /home/ivrcscripts;
-      ./$SCRIPT_NAME";
+      docker exec -it ci_xenial_ros /bin/bash -c "/home/ivrcscripts/$SCRIPT_NAME";
     fi
 
 script:
