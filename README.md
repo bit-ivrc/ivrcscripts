@@ -28,7 +28,7 @@ Speed up github access from China.
 Ipopt version: 3.12.4
 
 
-* install_sogou/wubi_input.bash
+* install_sogou.bash
 
 
 * latex_install.bash  
