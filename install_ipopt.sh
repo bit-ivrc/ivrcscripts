@@ -12,6 +12,7 @@ install_ipopt()
     TEMP_DIR=$(mktemp -d)
     IPOPTDIR="$TEMP_DIR/$IPOPT-$VERSION"
 
+    sudo apt-get update
     sudo apt-get -qq install gfortran
     if ( ldconfig -p | grep libipopt ); then
         echo "Ipopt is already installed......."
