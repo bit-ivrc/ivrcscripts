@@ -32,8 +32,8 @@ env:
     - SCRIPT_NAME: install_octomap.sh
       INSTALL_ROS: false
 
-    - SCRIPT_NAME: install_snopt.sh
-      INSTALL_ROS: false
+#    - SCRIPT_NAME: install_snopt.sh
+#      INSTALL_ROS: false
 
     - SCRIPT_NAME: install_sougou.sh
       INSTALL_ROS: false
