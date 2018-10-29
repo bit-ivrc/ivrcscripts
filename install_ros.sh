@@ -1,43 +1,54 @@
 #!/bin/bash
 set -e  # exit on first error
-CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-UBUNTU_CODENAME=$(lsb_release -sc)
-CATKIN_WS_DIR="$HOME/catkin_ws"
-ROS_DISTRO="kinetic"
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 main()
 {
-
-  echo ${UBUNTU_CODENAME}
-  ros_install
+  install_ros
   create_catkin_ws
 }
 
-ros_install()
+install_ros()
 {
-  if [ "${UBUNTU_CODENAME}" == "xenial" ]; then
-    echo "Installing ros kinetic.........."
-    sudo sh -c '. /etc/lsb-release && echo "deb http://mirrors.tuna.tsinghua.edu.cn/ros/ubuntu/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
-    sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 421C365BD9FF1F717815A3895523BAEEB01FA116
-    echo "Updating package lists ..."
-    sudo apt-get -qq update
-    echo "Installing ROS $ROS_DISTRO ..."
-    sudo apt-get -y install ros-$ROS_DISTRO-desktop
-    sudo apt-get -qq install python-catkin-tools
-    sudo apt-get -qq install ros-$ROS_DISTRO-catkin
+  identify_environment
 
-    # check if the ros setup file is sourced.
+  sudo sh -c '. /etc/lsb-release && echo "deb http://mirrors.ustc.edu.cn/ros/ubuntu/ $DISTRIB_CODENAME main" > /etc/apt/sources.list.d/ros-latest.list'
+
+  # check if there is a problem here
+  sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 421C365BD9FF1F717815A3895523BAEEB01FA116
+
+  echo "Updating package lists ..."
+  sudo apt-get -qq update --fix-missing
+  echo "Installing ROS $ROS_DISTRO ..."
+  sudo apt-get -y install ros-$ROS_DISTRO-desktop
+  sudo apt-get -qq install python-catkin-tools > /dev/null
+  sudo apt-get -qq install ros-$ROS_DISTRO-catkin > /dev/null
+
+  # check if the ros setup file is sourced.
+  if [ "$ROS_DISTRO" == "kinetic" ]; then
     if (grep 'source /opt/ros/kinetic/setup.bash' $HOME/.bashrc); then
       echo "The ros setup.bash has been sourced."
     else
       echo "source /opt/ros/kinetic/setup.bash" >> ~/.bashrc
     fi
-    source /opt/ros/$ROS_DISTRO/setup.bash
-
-    sudo apt-get -qq install python-rosinstall
-  else
-    echo "This is a script only for ubuntu 16.04."
   fi
+
+
+
+  if [ "$ROS_DISTRO" == "kinetic" ]; then
+      sudo apt-get -qq install ros-$ROS_DISTRO-opencv3 > /dev/null
+  fi
+
+  source /opt/ros/$ROS_DISTRO/setup.bash
+
+  # Prepare rosdep to install dependencies.
+  echo "Updating rosdep ..."
+  if [ ! -d /etc/ros/rosdep ]; then
+    sudo rosdep init > /dev/null
+  fi
+
+  rosdep update
+  sudo apt-get -qq install python-rosinstall
 }
 
 
@@ -57,7 +68,7 @@ create_catkin_ws()
         catkin build
         echo "Catkin workspace created successfully."
     fi
-    # check if the ros setup file is sourced.
+
 
     if (grep 'source ~/catkin_ws/devel/setup.bash' $HOME/.bashrc); then
       source $HOME/.bashrc
@@ -66,6 +77,26 @@ create_catkin_ws()
       echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
       source $HOME/.bashrc
     fi
+
 }
+
+# get UBUNTU_CODENAME, ROS_DISTRO, REPO_DIR, CATKIN_DIR
+identify_environment()
+{
+    UBUNTU_CODENAME=$(lsb_release -s -c)
+    case $UBUNTU_CODENAME in
+      xenial)
+        ROS_DISTRO=kinetic;;
+      *)
+        echo "Unsupported version of Ubuntu detected. Only xenial (16.04.*) are currently supported."
+        exit 1
+    esac
+    REPO_DIR=$(dirname "$SCRIPT_DIR")
+    CATKIN_WS_DIR="$HOME/catkin_ws"
+}
+
+# Install system dependencies listed in ROS packages' package.xml
+# Note: dependencies needed on embedded systems must still be included
+# separately in the repo or cross-compiled stage.
 
 main
