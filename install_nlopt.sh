@@ -10,7 +10,7 @@ main() {
 
 install_apt_pkgs() {
   sudo apt-get update
-  sudo apt-get -y install cmake
+  sudo apt-get -y install cmake g++
 }
 
 install_nlopt()
