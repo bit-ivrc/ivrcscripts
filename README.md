@@ -1,4 +1,4 @@
-# ivrcscripts
+# ivrcscripts[![Build Status](https://travis-ci.com/bit-ivrc/ivrcscripts.svg?token=Jmj6MSYSGZmX9ePjdawa&branch=master)](https://travis-ci.com/bit-ivrc/ivrcscripts)
 Common place for storing general install, setup, and other scripts.
 
 ## Usage
