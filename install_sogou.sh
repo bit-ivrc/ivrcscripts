@@ -1,4 +1,6 @@
 #!/bin/bash
+set -e  # exit on first error
+
 GREEN_COLOR='\E[1;32m'
 YELOW_COLOR='\E[1;33m'
 WRITE_COLOR='\E[1;37m'
