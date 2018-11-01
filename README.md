@@ -43,7 +43,7 @@ This script will install the lastest version of [octomap](http://octomap.github.
 Ipopt version: 3.12.4
 
 
-* install_sougou.sh  
+* install_sogou.sh  
 This script will install sougou pinyin.
 
 * install_vrep.sh  
