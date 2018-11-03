@@ -8,7 +8,7 @@ main(){
     if [ $UBUNTU_VERSION == "16.04" ]; then
         install_dependencies
         install_ceres_solver
-    fi   
+    fi
 }
 
 install_dependencies() {
@@ -20,11 +20,6 @@ install_dependencies() {
                            libsuitesparse-dev
 }
 
-install_suitesparse_fix() {
-    add-apt-repository ppa:bzindovic/suitesparse-bugfix-1319687 -y
-    apt-get update -qq
-    apt-get install -qq libsuitesparse-dev
-}
 
 install_ceres_solver() {
     mkdir -p $SRC_PREFIX_PATH
@@ -35,8 +30,8 @@ install_ceres_solver() {
         git clone https://github.com/ceres-solver/ceres-solver.git
     else
     	cd ceres-solver
-    	git checkout master 
-    	git pull 
+    	git checkout master
+    	git pull
     	cd ..
     fi
 

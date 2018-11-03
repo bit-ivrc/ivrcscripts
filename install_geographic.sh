@@ -29,7 +29,7 @@ install_geographic_from_source()
         mkdir -p BUILD
         cd BUILD
         cmake ..
-        make 
+        make
         sudo make install > /dev/null
     fi
 }
