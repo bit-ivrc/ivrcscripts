@@ -1,49 +1,25 @@
 #!/bin/bash
-
 set -e # exit on first error
+SOURCE_DIR="/tmp"
 
 install_ipopt()
 {
-
     echo "Prepare to install IPOPT ..."
-    IPOPT="Ipopt"
-    VERSION="3.12.4"
-    IPOPT_URL="https://www.coin-or.org/download/source/Ipopt/$IPOPT-$VERSION.tgz"
-    TEMP_DIR=$(mktemp -d)
-    IPOPTDIR="$TEMP_DIR/$IPOPT-$VERSION"
+    IPOPT_URL="https://git.coding.net/aRagdoll/Ipopt-3.12.4.git"
 
-    sudo apt-get update
-    sudo apt-get -qq install gfortran
+    sudo apt-get -y install gfortran
     if ( ldconfig -p | grep libipopt ); then
         echo "Ipopt is already installed......."
     else
-        echo "Start installing Ipopt, version: $VERSION .........."
-        cd $TEMP_DIR
-        wget $IPOPT_URL
-        tar -xf $IPOPTDIR.tgz
-        rm -rf $IPOPT-$VERSION.tgz
-
-        echo "Installing third party dependencies ..."
-        cd $IPOPTDIR/ThirdParty/Mumps
-        ./get.Mumps  
-        cd ../ASL
-        ./get.ASL   
-        cd ../Blas
-        ./get.Blas  
-        cd ../Lapack
-        ./get.Lapack  
-        cd ../Metis
-        ./get.Metis  
-
+        echo "Start installing Ipopt, version: 3.12.4  .........."
+        cd $SOURCE_DIR
+        rm -rf Ipopt-3.12.4 && git clone "$IPOPT_URL" && cd Ipopt-3.12.4
         # configure,build and install the IPOPT
         echo "Configuring and building IPOPT ..."
-        cd $IPOPTDIR
-        ./configure --prefix /usr/local 2>&1 | grep ...
-        make -j$(nproc) 2>&1 | grep ...  # filter error messages written to stderr 
-        make test > /dev/null
-        sudo make install > /dev/null
-        cd "$HOME"
-        rm -rf $IPOPTDIR
+        ./configure --prefix /usr/local
+        make -j$(nproc)
+        make test
+        sudo make install
         if (grep 'export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH' $HOME/.bashrc); then
           echo "LD_LIBRARY_PATH has been set."
         else

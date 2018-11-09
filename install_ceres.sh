@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e  # exit on first error
 UBUNTU_VERSION=`lsb_release --release | cut -f2`
-SRC_PREFIX_PATH="/usr/local/src/"
+SRC_PATH="/tmp"
 CERES_VERSION=1.12.0
 
 main(){
@@ -12,8 +12,8 @@ main(){
 }
 
 install_dependencies() {
-    apt-get update -qq
-    apt-get install -qq -y cmake \
+    sudo apt-get update -qq
+    sudo apt-get install -qq -y cmake \
                            libgoogle-glog-dev \
                            libatlas-base-dev \
                            libeigen3-dev \
@@ -22,9 +22,7 @@ install_dependencies() {
 
 
 install_ceres_solver() {
-    mkdir -p $SRC_PREFIX_PATH
-    cd $SRC_PREFIX_PATH
-
+    cd $SRC_PATH
     # clone ceres-solver if directory does not already exist, or pull
     if [ ! -d ceres-solver ]; then
         git clone https://github.com/ceres-solver/ceres-solver.git
