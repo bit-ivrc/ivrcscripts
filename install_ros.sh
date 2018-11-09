@@ -9,11 +9,11 @@ main()
 {
 
   echo ${UBUNTU_CODENAME}
-  ros_install
+  install_ros
   create_catkin_ws
 }
 
-ros_install()
+install_ros()
 {
   if [ "${UBUNTU_CODENAME}" == "xenial" ]; then
     echo "Installing ros kinetic.........."
