@@ -45,7 +45,7 @@ env:
       INSTALL_ROS: false
 
     - SCRIPT_NAME: install_geographic.sh
-      INSTALL_ROS: true
+      INSTALL_ROS: false
 
     - SCRIPT_NAME: install_grid_map.sh
       INSTALL_ROS: true
