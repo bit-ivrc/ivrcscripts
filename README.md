@@ -25,7 +25,7 @@ Various useful scripts for
 | 9.`install_vrep.sh`    | [![job9][9]][0]  | -- | v3.4.0 | [A General 3D Simulator for Robotics](http://www.coppeliarobotics.com/).|
 | 10.`install_ros.sh`    | [![job10][10]][0]  | ubuntu 16.04 | kinetics | [Robot Operating System](http://www.ros.org/) |
 | 11.`install_geographic.sh`    | [![job11][11]][0]  | -- | dev | [A Library for Solving Geodesic Problems](https://geographiclib.sourceforge.io/).|
-| 12.`install_grid_map.sh`    | [![job12][12]][0]  | ROS | 1.6.0 | [A Grid Map Library](https://github.com/anybotics/grid_map) |
+| 12.`install_grid_map.sh`    | [![job12][12]][0]  | install_ros.sh | 1.6.0 | [A Grid Map Library](https://github.com/anybotics/grid_map) |
 | 13.`install_ipopt.sh`    | [![job13][13]][0]  | -- | 3.12.4 | [Nonliner Programming Solver](https://projects.coin-or.org/Ipopt) |
 
 
