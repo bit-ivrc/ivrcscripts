@@ -22,8 +22,6 @@ env:
       INSTALL_ROS: false
     - SCRIPT_NAME: install_nlopt.sh
       INSTALL_ROS: false
-    - SCRIPT_NAME: install_octomap.sh
-      INSTALL_ROS: false
     - SCRIPT_NAME: install_sogou.sh
       INSTALL_ROS: false
     - SCRIPT_NAME: install_vrep.sh
