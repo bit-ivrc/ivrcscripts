@@ -10,46 +10,32 @@ env:
   matrix:
     - SCRIPT_NAME: install_bit_source_list.sh
       INSTALL_ROS: false
-
     - SCRIPT_NAME: install_ceres.sh
       INSTALL_ROS: false
-
     - SCRIPT_NAME: install_cppad.sh
       INSTALL_ROS: false
-
     - SCRIPT_NAME: install_github_lfs.sh
       INSTALL_ROS: false
-
     - SCRIPT_NAME: install_gtest.sh
       INSTALL_ROS: false
-
     - SCRIPT_NAME: install_libccd_fcl.sh
       INSTALL_ROS: false
-
-   - SCRIPT_NAME: install_nlopt.sh
+    - SCRIPT_NAME: install_nlopt.sh
       INSTALL_ROS: false
-
     - SCRIPT_NAME: install_octomap.sh
       INSTALL_ROS: false
-
     - SCRIPT_NAME: install_snopt.sh
       INSTALL_ROS: false
-
     - SCRIPT_NAME: install_sogou.sh
       INSTALL_ROS: false
-
     - SCRIPT_NAME: install_vrep.sh
       INSTALL_ROS: false
-
     - SCRIPT_NAME: install_ros.sh
       INSTALL_ROS: false
-
     - SCRIPT_NAME: install_geographic.sh
       INSTALL_ROS: false
-
     - SCRIPT_NAME: install_grid_map.sh
       INSTALL_ROS: true
-
     - SCRIPT_NAME: install_ipopt.sh
       INSTALL_ROS: false
 
