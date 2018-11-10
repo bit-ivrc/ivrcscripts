@@ -7,7 +7,13 @@ install_ipopt()
     echo "Prepare to install IPOPT ..."
     IPOPT_URL="https://git.coding.net/aRagdoll/Ipopt-3.12.4.git"
 
-    sudo apt-get -y install gfortran
+    sudo apt-get update
+    sudo apt-get -y install \
+        gfortran \
+        cmake  \
+        build-essential \
+        gcc \
+        g++
     if ( ldconfig -p | grep libipopt ); then
         echo "Ipopt is already installed......."
     else
