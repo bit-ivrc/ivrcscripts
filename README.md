@@ -14,7 +14,7 @@ Various useful scripts for
 
 | installers | status  | dependencies | version | description |
 | ------ | ------ | :------: | :-------: | -------- |
-| 1.`install_bit_source_list.sh` | [![job1][1]][0] | BIT campus network | latest | Update [sources.list](http://wiki.ubuntu.org.cn/%E6%A8%A1%E6%9D%BF:16.04source) with the BIT Mirror|
+| 1.`install_bit_source_list.sh` | [![job1][1]][0] | BIT campus network | latest | Update [sources.list](http://wiki.ubuntu.org.cn/%E6%A8%A1%E6%9D%BF:16.04source) with the BIT apt Mirror|
 | 2.`install_ceres.sh`    | [![job2][2]][0]  |  -- | 1.12.0 | [Google Ceres Solver](http://ceres-solver.org/) |
 | 3.`install_cppad.sh`    | [![job3][3]][0]  | -- | 20180000.0 | [Automatic Differentiation Library](http://coin-or.github.io/CppAD/doc/cppad.htm) |
 | 4.`install_github_lfs.sh`    | [![job4][4]][0]  | -- | 2.3.4 | [Git Large File Storage](https://git-lfs.github.com/) Support |
@@ -23,7 +23,7 @@ Various useful scripts for
 | 7.`install_nlopt.sh`    | [![job7][7]][0]  | -- | latest | [Nonlinear Programming Solver](https://nlopt.readthedocs.io/en/latest/) |
 | 8.`install_sogou.sh`    | [![job8][8]][0]  | -- | latest | [Input Method](https://pinyin.sogou.com/linux/?r=pinyin) |
 | 9.`install_vrep.sh`    | [![job9][9]][0]  | -- | v3.4.0 | [A General 3D Simulator for Robotics](http://www.coppeliarobotics.com/).|
-| 10.`install_ros.sh`    | [![job10][10]][0]  | ubuntu 16.04 | kinetics | [Robot Operating System](http://www.ros.org/) |
+| 10.`install_ros.sh`    | [![job10][10]][0]  | ubuntu 16.04 | kinetic | [Robot Operating System](http://www.ros.org/) |
 | 11.`install_geographic.sh`    | [![job11][11]][0]  | -- | dev | [A Library for Solving Geodesic Problems](https://geographiclib.sourceforge.io/).|
 | 12.`install_grid_map.sh`    | [![job12][12]][0]  | install_ros.sh | 1.6.0 | [A Grid Map Library](https://github.com/anybotics/grid_map) |
 | 13.`install_ipopt.sh`    | [![job13][13]][0]  | -- | 3.12.4 | [Nonliner Programming Solver](https://projects.coin-or.org/Ipopt) |
