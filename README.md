@@ -7,7 +7,7 @@ Various useful scripts for
 ## Usage
 
 ```
-.installers/<*>.sh
+./installers/<*>.sh
 ```
 
 ## Status and Description
@@ -32,16 +32,16 @@ Various useful scripts for
 See [wiki](https://github.com/bit-ivrc/ivrcscripts/wiki) for more useful information.
 
 [0]: https://travis-ci.org/bit-ivrc/ivrcscripts
-[1]: https://travis-matrix-badges.herokuapp.com/repos/bit-ivrc/ivrcscripts/branches/refactor_structure_and_ci_display/1
-[2]: https://travis-matrix-badges.herokuapp.com/repos/bit-ivrc/ivrcscripts/branches/refactor_structure_and_ci_display/2
-[3]: https://travis-matrix-badges.herokuapp.com/repos/bit-ivrc/ivrcscripts/branches/refactor_structure_and_ci_display/3
-[4]: https://travis-matrix-badges.herokuapp.com/repos/bit-ivrc/ivrcscripts/branches/refactor_structure_and_ci_display/4
-[5]: https://travis-matrix-badges.herokuapp.com/repos/bit-ivrc/ivrcscripts/branches/refactor_structure_and_ci_display/5
-[6]: https://travis-matrix-badges.herokuapp.com/repos/bit-ivrc/ivrcscripts/branches/refactor_structure_and_ci_display/6
-[7]: https://travis-matrix-badges.herokuapp.com/repos/bit-ivrc/ivrcscripts/branches/refactor_structure_and_ci_display/7
-[8]: https://travis-matrix-badges.herokuapp.com/repos/bit-ivrc/ivrcscripts/branches/refactor_structure_and_ci_display/8
-[9]: https://travis-matrix-badges.herokuapp.com/repos/bit-ivrc/ivrcscripts/branches/refactor_structure_and_ci_display/9
-[10]: https://travis-matrix-badges.herokuapp.com/repos/bit-ivrc/ivrcscripts/branches/refactor_structure_and_ci_display/10
-[11]: https://travis-matrix-badges.herokuapp.com/repos/bit-ivrc/ivrcscripts/branches/refactor_structure_and_ci_display/11
-[12]: https://travis-matrix-badges.herokuapp.com/repos/bit-ivrc/ivrcscripts/branches/refactor_structure_and_ci_display/12
-[13]: https://travis-matrix-badges.herokuapp.com/repos/bit-ivrc/ivrcscripts/branches/refactor_structure_and_ci_display/13
+[1]: https://travis-matrix-badges.herokuapp.com/repos/bit-ivrc/ivrcscripts/branches/master/1
+[2]: https://travis-matrix-badges.herokuapp.com/repos/bit-ivrc/ivrcscripts/branches/master/2
+[3]: https://travis-matrix-badges.herokuapp.com/repos/bit-ivrc/ivrcscripts/branches/master/3
+[4]: https://travis-matrix-badges.herokuapp.com/repos/bit-ivrc/ivrcscripts/branches/master/4
+[5]: https://travis-matrix-badges.herokuapp.com/repos/bit-ivrc/ivrcscripts/branches/master/5
+[6]: https://travis-matrix-badges.herokuapp.com/repos/bit-ivrc/ivrcscripts/branches/master/6
+[7]: https://travis-matrix-badges.herokuapp.com/repos/bit-ivrc/ivrcscripts/branches/master/7
+[8]: https://travis-matrix-badges.herokuapp.com/repos/bit-ivrc/ivrcscripts/branches/master/8
+[9]: https://travis-matrix-badges.herokuapp.com/repos/bit-ivrc/ivrcscripts/branches/master/9
+[10]: https://travis-matrix-badges.herokuapp.com/repos/bit-ivrc/ivrcscripts/branches/master/10
+[11]: https://travis-matrix-badges.herokuapp.com/repos/bit-ivrc/ivrcscripts/branches/master/11
+[12]: https://travis-matrix-badges.herokuapp.com/repos/bit-ivrc/ivrcscripts/branches/master/12
+[13]: https://travis-matrix-badges.herokuapp.com/repos/bit-ivrc/ivrcscripts/branches/master/13
