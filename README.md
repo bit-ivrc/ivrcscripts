@@ -32,7 +32,6 @@ Various useful scripts for
 
 See [wiki](https://github.com/bit-ivrc/ivrcscripts/wiki) for more useful information.
 
-
 [0]: https://travis-ci.org/bit-ivrc/ivrcscripts
 [1]: https://travis-matrix-badges.herokuapp.com/repos/bit-ivrc/ivrcscripts/branches/refactor_structure_and_ci_display/1
 [2]: https://travis-matrix-badges.herokuapp.com/repos/bit-ivrc/ivrcscripts/branches/refactor_structure_and_ci_display/2
