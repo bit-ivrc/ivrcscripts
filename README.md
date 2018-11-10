@@ -7,9 +7,8 @@ Various useful scripts for
 ## Usage
 
 ```
-./<*>.sh
+.installers/<*>.sh
 ```
-
 
 ## Status and Description
 
