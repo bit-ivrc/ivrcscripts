@@ -3,7 +3,7 @@ sudo: required
 services:
   - docker
 
-# show correct language tag in Travis CI build
+# show correct language tag in Travis CI build.
 language: cpp
 
 env:
