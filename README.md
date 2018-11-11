@@ -33,17 +33,17 @@ Various useful scripts for
 See [wiki](https://github.com/bit-ivrc/ivrcscripts/wiki) for more useful information.
 
 [0]: https://travis-ci.org/bit-ivrc/ivrcscripts
-[1]: https://travis-matrix-badges.herokuapp.com/repos/bit-ivrc/ivrcscripts/branches/master/1
-[2]: https://travis-matrix-badges.herokuapp.com/repos/bit-ivrc/ivrcscripts/branches/master/2
-[3]: https://travis-matrix-badges.herokuapp.com/repos/bit-ivrc/ivrcscripts/branches/master/3
-[4]: https://travis-matrix-badges.herokuapp.com/repos/bit-ivrc/ivrcscripts/branches/master/4
-[5]: https://travis-matrix-badges.herokuapp.com/repos/bit-ivrc/ivrcscripts/branches/master/5
-[6]: https://travis-matrix-badges.herokuapp.com/repos/bit-ivrc/ivrcscripts/branches/master/6
-[7]: https://travis-matrix-badges.herokuapp.com/repos/bit-ivrc/ivrcscripts/branches/master/7
-[8]: https://travis-matrix-badges.herokuapp.com/repos/bit-ivrc/ivrcscripts/branches/master/8
-[9]: https://travis-matrix-badges.herokuapp.com/repos/bit-ivrc/ivrcscripts/branches/master/9
-[10]: https://travis-matrix-badges.herokuapp.com/repos/bit-ivrc/ivrcscripts/branches/master/10
-[11]: https://travis-matrix-badges.herokuapp.com/repos/bit-ivrc/ivrcscripts/branches/master/11
-[12]: https://travis-matrix-badges.herokuapp.com/repos/bit-ivrc/ivrcscripts/branches/master/12
-[13]: https://travis-matrix-badges.herokuapp.com/repos/bit-ivrc/ivrcscripts/branches/master/13
-[14]: https://travis-matrix-badges.herokuapp.com/repos/bit-ivrc/ivrcscripts/branches/master/14
+[1]: https://travis-matrix-badges.herokuapp.com/repos/bit-ivrc/ivrcscripts/branches/feature_install_wubi_input_method/1
+[2]: https://travis-matrix-badges.herokuapp.com/repos/bit-ivrc/ivrcscripts/branches/feature_install_wubi_input_method/2
+[3]: https://travis-matrix-badges.herokuapp.com/repos/bit-ivrc/ivrcscripts/branches/feature_install_wubi_input_method/3
+[4]: https://travis-matrix-badges.herokuapp.com/repos/bit-ivrc/ivrcscripts/branches/feature_install_wubi_input_method/4
+[5]: https://travis-matrix-badges.herokuapp.com/repos/bit-ivrc/ivrcscripts/branches/feature_install_wubi_input_method/5
+[6]: https://travis-matrix-badges.herokuapp.com/repos/bit-ivrc/ivrcscripts/branches/feature_install_wubi_input_method/6
+[7]: https://travis-matrix-badges.herokuapp.com/repos/bit-ivrc/ivrcscripts/branches/feature_install_wubi_input_method/7
+[8]: https://travis-matrix-badges.herokuapp.com/repos/bit-ivrc/ivrcscripts/branches/feature_install_wubi_input_method/8
+[9]: https://travis-matrix-badges.herokuapp.com/repos/bit-ivrc/ivrcscripts/branches/feature_install_wubi_input_method/9
+[10]: https://travis-matrix-badges.herokuapp.com/repos/bit-ivrc/ivrcscripts/branches/feature_install_wubi_input_method/10
+[11]: https://travis-matrix-badges.herokuapp.com/repos/bit-ivrc/ivrcscripts/branches/feature_install_wubi_input_method/11
+[12]: https://travis-matrix-badges.herokuapp.com/repos/bit-ivrc/ivrcscripts/branches/feature_install_wubi_input_method/12
+[13]: https://travis-matrix-badges.herokuapp.com/repos/bit-ivrc/ivrcscripts/branches/feature_install_wubi_input_method/13
+[14]: https://travis-matrix-badges.herokuapp.com/repos/bit-ivrc/ivrcscripts/branches/feature_install_wubi_input_method/14
