@@ -16,7 +16,6 @@ install_wubi()
   echo "installing wubi....."
   #./install_bit_source_list.sh
   sudo apt-get update
-  sudo dpkg --configure -a
   sudo apt-get install -y fcitx-table-wubi
   sudo apt-get install -y fcitx-config-gtk
   im-config -n fcitx
