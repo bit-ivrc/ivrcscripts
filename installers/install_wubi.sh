@@ -15,9 +15,10 @@ install_wubi()
 {
   echo "installing wubi....."
   #./install_bit_source_list.sh
-  sudo apt update
-  sudo apt-get install fcitx-table-wubi
-  sudo apt-get install fcitx-config-gtk
+  sudo apt-get update
+  sudo dpkg --configure -a
+  sudo apt-get install -y fcitx-table-wubi
+  sudo apt-get install -y fcitx-config-gtk
   im-config -n fcitx
   echo -e  "${GREEN_COLOR}=============================  Click <<+>>  =============================${RES}"
   echo -e  "${GREEN_COLOR}===== Uncheck <<Only Show Current Language>> And Search <<Wubi>>!!! =====${RES}"
