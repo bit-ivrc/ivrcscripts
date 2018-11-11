@@ -24,6 +24,8 @@ env:
       WITH_ROS: false
     - NAME: install_sogou.sh
       WITH_ROS: false
+    - NAME: install_wubi.sh
+      WITH_ROS: false
     - NAME: install_vrep.sh
       WITH_ROS: false
     - NAME: install_ros.sh
