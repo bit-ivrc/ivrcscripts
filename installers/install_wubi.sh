@@ -23,7 +23,7 @@ install_wubi()
   echo -e  "${GREEN_COLOR}=============================  Click <<+>>  =============================${RES}"
   echo -e  "${GREEN_COLOR}===== Uncheck <<Only Show Current Language>> And Search <<Wubi>>!!! =====${RES}"
   echo -e  "${YELOW_COLOR}======= If you can't find it,you need to <<restart>> your computer ======${RES}"
-  echo -e  "${YELOW_COLOR}================  And <<./install_wubi.sh>> again!!!  ================${RES}"
+  echo -e  "${YELOW_COLOR}==================  And <<./install_wubi.sh>> again!!!  =================${RES}"
   echo " "
   echo -e  "${WRITE_COLOR}#########################################################${RES}"
   cd /usr/bin/
