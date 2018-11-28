@@ -28,7 +28,7 @@ Various useful scripts for
 | 12.`install_geographic.sh`    | [![job12][12]][0]  | -- | dev | [A Library for Solving Geodesic Problems](https://geographiclib.sourceforge.io/).|
 | 13.`install_grid_map.sh`    | [![job13][13]][0]  | install_ros.sh | 1.6.0 | [A Grid Map Library](https://github.com/anybotics/grid_map) |
 | 14.`install_ipopt.sh`    | [![job14][14]][0]  | -- | 3.12.4 | [Nonliner Programming Solver](https://projects.coin-or.org/Ipopt) |
-
+| 15.`install_nlopt.sh`    | [![job14][15]][0]  | -- | v2.5.0 | [Nonliner Programming Solver](https://github.com/stevengj/nlopt) |
 
 See [wiki](https://github.com/bit-ivrc/ivrcscripts/wiki) for more useful information.
 
@@ -47,3 +47,4 @@ See [wiki](https://github.com/bit-ivrc/ivrcscripts/wiki) for more useful informa
 [12]: https://travis-matrix-badges.herokuapp.com/repos/bit-ivrc/ivrcscripts/branches/master/12
 [13]: https://travis-matrix-badges.herokuapp.com/repos/bit-ivrc/ivrcscripts/branches/master/13
 [14]: https://travis-matrix-badges.herokuapp.com/repos/bit-ivrc/ivrcscripts/branches/master/14
+[15]: https://travis-matrix-badges.herokuapp.com/repos/bit-ivrc/ivrcscripts/branches/master/15
