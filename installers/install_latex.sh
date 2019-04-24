@@ -66,7 +66,7 @@ install_texStudio()
     echo "Remove the old version TexStudio......" 
     cd /tmp && sudo apt-get -y purge texstudio* && sudo dpkg -r texstudio
     cd $SCRIPT_DIR
-    wget -O texstudio-qt5.deb https://coding.net/u/aRagdoll/p/software_install/git/raw/master/texstudio_2.12.14-1%2B2.1_amd64.deb
+    wget -O texstudio-qt5.deb https://dev.tencent.com/u/aRagdoll/p/software_install/git/raw/master/texstudio_2.12.14-1%2B2.1_amd64.deb
     sudo apt-get -y install libpoppler-qt5-1 libqt5script5
     sudo dpkg --install --force-overwrite texstudio-qt5.deb && rm -rf texstudio-qt5.deb
     echo "TeXStudio is installed on your computer."
